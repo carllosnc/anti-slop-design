@@ -1,6 +1,6 @@
 ---
 name: anti-slop-design
-description: Use when creating, reviewing, or restyling any UI — landing pages, marketing sites, dashboards, components, or copy for screens. Enforces anti-slop design guardrails (inverted from the satirical Slopstrap framework) to avoid the clichéd AI-generated aesthetic: purple gradients, blinking dots, bento grids, glassmorphism, gradient text, fake social proof, and LLM marketing copy.
+description: "Use when creating, reviewing, or restyling any UI — landing pages, marketing sites, dashboards, components, or copy for screens. Enforces anti-slop design guardrails (inverted from the satirical Slopstrap framework) to avoid the clichéd AI-generated aesthetic: purple gradients, blinking dots, bento grids, glassmorphism, gradient text, fake social proof, and LLM marketing copy."
 ---
 
 # Anti-Slop Design
