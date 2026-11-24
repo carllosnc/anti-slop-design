@@ -59,14 +59,16 @@ demand (progressive disclosure) instead of all at once.
 ## Structure
 
 ```text
-skills/
-└── anti-slop-design/
-    ├── SKILL.md                      # Workflow, decoration budget, non-negotiables
-    └── references/
-        ├── anti-patterns.md          # Visual/interaction catalog (10 sections, .slop-* signatures)
-        ├── copywriting.md            # Text and copy anti-patterns
-        └── checklist.md              # Pre-delivery review checklist
-opencode.json                         # Registers ./skills so this repo dogfoods the skill
+├── skills/
+│   └── anti-slop-design/
+│       ├── SKILL.md                  # Workflow, decoration budget, non-negotiables
+│       └── references/
+│           ├── anti-patterns.md      # Visual/interaction catalog (10 sections, .slop-* signatures)
+│           ├── copywriting.md        # Text and copy anti-patterns
+│           └── checklist.md          # Pre-delivery review checklist
+├── docs/                             # Landing page, plain HTML and CSS
+├── .github/workflows/pages.yml       # Deploys docs/ to GitHub Pages
+└── opencode.json                     # Registers ./skills so this repo dogfoods the skill
 ```
 
 The layout follows the Agent Skills spec (`SKILL.md` with `name` + `description`
@@ -78,6 +80,17 @@ frontmatter), which is what `npx skills add` and skills.sh index.
 - Ask something like *"review this component with anti-slop-design"* — OpenCode
   advertises the skill whenever the description matches the task (creating/reviewing UI,
   landing pages, components, screen copy).
+
+## Landing page
+
+The site lives in `docs/` and publishes to
+<https://carllosnc.github.io/anti-slop-design/>. It is plain HTML, CSS, and a small
+script for the copy buttons, with no build step. Google Sans, Redaction, and
+JetBrains Mono are self-hosted and subset; see `docs/assets/fonts/README.md`.
+
+To publish it, open Settings → Pages and set the source to **GitHub Actions**. The
+workflow in `.github/workflows/pages.yml` deploys `docs/` on every push to `master`.
+Alternatively, use **Deploy from a branch** with `master` and `/docs`.
 
 ## Credits
 
