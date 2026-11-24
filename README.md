@@ -1,15 +1,30 @@
 # anti-slop-design
 
-A skill for coding agents (OpenCode, Claude Code — also compatible with `.claude/skills`
-and `.agents/skills`) that enforces **anti-slop design guardrails**: the inverse of
-[Slopstrap](https://slopstrap.mikelacher.com/), Mike Lacher's satire that packages every
-"vibecoded" LLM design cliché as a ready-made component.
+[![skills.sh](https://skills.sh/b/carllosnc/anti-slop-design)](https://skills.sh/carllosnc/anti-slop-design)
 
-> *"Make your site look hastily vibecoded."*
+**Use this skill when** creating, reviewing, or restyling any UI — landing pages,
+marketing sites, dashboards, components, or screen copy. It enforces anti-slop design
+guardrails (inverted from the satirical
+[Slopstrap](https://slopstrap.mikelacher.com/) framework) to keep your output from
+looking like every other AI-generated page: purple gradients, blinking dots, bento
+grids, glassmorphism, gradient text, fake social proof, and LLM marketing copy.
 
-Slopstrap is a joke — but it is also an accurate catalog of what **not** to do. This
-skill inverts every one of its components into a golden rule: if your output could have
-come out of `Slopstrap.slopify()`, redesign it.
+## Install
+
+```bash
+npx skills add carllosnc/anti-slop-design
+```
+
+Pick your agent when prompted — OpenCode, Claude Code, Cursor, Codex, and 75+ more.
+Add `-g` to install across all projects:
+
+```bash
+npx skills add carllosnc/anti-slop-design -g
+```
+
+Prefer manual? Copy `skills/anti-slop-design/` into your project's `.agents/skills/`,
+`.opencode/skills/`, or `.claude/skills/` (or globally to
+`~/.config/opencode/skills/`).
 
 ## What the skill avoids
 
@@ -31,38 +46,31 @@ come out of `Slopstrap.slopify()`, redesign it.
 | "It's not just X — it's Y" copy, em-dash chains, superlatives | Plain, specific, verifiable sentences |
 | Emoji (✨⚡🚀) in headings, buttons, and icons | One real icon set — or none |
 
+## How it works
+
+Slopstrap is a joke — but it is also an accurate catalog of what **not** to do. This
+skill inverts every one of its components into a golden rule: if your output could have
+come out of `Slopstrap.slopify()`, redesign it.
+
+The skill ships a workflow and a decoration budget in `SKILL.md`, with the full
+catalog, copy rules, and a pre-delivery checklist under `references/` — loaded on
+demand (progressive disclosure) instead of all at once.
+
 ## Structure
 
 ```text
-.opencode/skills/anti-slop-design/
-├── SKILL.md                      # Workflow, decoration budget, non-negotiables
-└── references/
-    ├── anti-patterns.md          # Visual/interaction catalog (10 sections, .slop-* signatures)
-    ├── copywriting.md            # Text and copy anti-patterns
-    └── checklist.md              # Pre-delivery review checklist
+skills/
+└── anti-slop-design/
+    ├── SKILL.md                      # Workflow, decoration budget, non-negotiables
+    └── references/
+        ├── anti-patterns.md          # Visual/interaction catalog (10 sections, .slop-* signatures)
+        ├── copywriting.md            # Text and copy anti-patterns
+        └── checklist.md              # Pre-delivery review checklist
+opencode.json                         # Registers ./skills so this repo dogfoods the skill
 ```
 
-## Installation
-
-**In this project** (already active — OpenCode discovers `.opencode/skills`
-automatically):
-
-```powershell
-# just having it in the repository is enough
-```
-
-**Globally (all projects):**
-
-```powershell
-# OpenCode
-Copy-Item -Recurse .opencode\skills\anti-slop-design "$env:USERPROFILE\.config\opencode\skills\"
-
-# or Claude Code / Agents compatibility
-Copy-Item -Recurse .opencode\skills\anti-slop-design "$env:USERPROFILE\.claude\skills\"
-```
-
-**In another repository:** copy the `anti-slop-design/` folder into its
-`.opencode/skills/`, `.claude/skills/`, or `.agents/skills/`.
+The layout follows the Agent Skills spec (`SKILL.md` with `name` + `description`
+frontmatter), which is what `npx skills add` and skills.sh index.
 
 ## Usage
 
